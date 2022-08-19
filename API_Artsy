@@ -1,7 +1,5 @@
 import requests
 import json
-from operator import itemgetter
-
 
 client_id = '759d1a1afdc0b19632c1'
 client_secret = '1b1d5b3f46875e76d1971a1b2f2fc499'
