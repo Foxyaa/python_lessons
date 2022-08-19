@@ -35,7 +35,6 @@ with open(r'C:/Users/79537/Downloads/dataset_24476_4.txt',encoding="UTF-8") as f
         j = json.loads(r.text)
         d[j["sortable_name"]]=j['birthday']
 d=sorted(d,key=lambda x:d[x])
-print(d)
 with open(r'C:/Users/79537/Downloads/solve.txt',"w",encoding="UTF-8") as final:
     for i in d:
         final.write(i + "\n")
