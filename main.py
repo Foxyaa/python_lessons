@@ -1,353 +1,501 @@
-# def main():
-#
-# main()
-# num=[int(i) for i in input().split()]
-# num.sort()
-# res,k=0,num[0]
-# for n in range (len(num)):
-#     if num[n]==k:
-#         res+=1
-#     elif res>1:
-#         print(num[n-1], end=' ')
-#         res,k=0, num[n+1]
-#     else:
-#         continue
+def z1():
+    with open(r"C:\Users\79537\Downloads\01.txt") as file:
+        k = 0
+        operations = {'+': lambda x, y: x + y,
+                      '-': lambda x, y: x - y}
+        while True:
+            line = file.readline().strip()
+            if not line:
+                break
+            oper, num = line[0], int(line[1:])
+            print(oper, "*****", num)
+            k = operations[oper](k, num)
+        print(k)
+def z2():
+    with open(r"C:\Users\79537\Downloads\02.txt") as file:
+        b2,b3=0,0
 
-
-# num=[int(i) for i in input().split()]
-# num.sort()
-# sp=[num[0]]
-# for i,n in enumerate(num):
-#     if n==sp:
-#         sp.append(n)
-#     elif len(sp)>2:
-#         print(sp[0], end=' ')
-#         sp=[i+1]
-#     else:
-#         continue
-
-
-# s=[int(i) for i in input().split()]
-# res=0
-# for i in range (len(s)):
-#     if s[i]==s[i+1]:
-#         res+=1
-#     else:
-#         print(s[i], end='')
-#         res=0
-def z():  # раскодирование строки из файла и запись вывода в другой файл
-    numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}
-    num = ""
-    with open(r'C:/Users/79537/Downloads/dataset_3363_2.txt') as inf, \
-            open(r'C:/Users/79537/Downloads/final_out.txt', "w") as outf:
-        s = inf.readline().strip() + "#"
-        for i, n in enumerate(s):
-            if n not in numbers:
-                b = s[i]
-            else:
-                num += s[i]
-                if s[i + 1] not in numbers:
-                    outf.write(b * int(num))
-                    num = ""
-
-
-# with open(r'C:/Users/79537/Downloads/dataset_3363_2.txt') as infile:
-#     lst = infile.read().replace('\n', '').replace('\r', '').lower().split()
-#     x, d = [], {}
-#     for i in lst:
-#         if i not in x:
-#             # print(i,lst.count(i))
-#             d[lst.count(i)] = i
-#     for j,n in enumerate(d.keys()):
-#         if j==0 or n>d[]:
-#             res=
-#         elif j==j-1:
-
-# with open('C:/Users/79537/Downloads/marks.txt',"r",encoding='utf-8') as fi, open(r'C:/Users/79537/Downloads/out.txt', "w") as outfi:
-#     medium_1, medium_2, medium_3, count_str = 0, 0, 0, 0
-#     while True:
-#         line = fi.readline().split(';')
-#         count_str += 1
-#         medium_ab = (int(line[1])+int(line[2])+int(line[3]))/3
-#         ab=str(medium_ab)+"\n"
-#         outfi.write(ab)
-#         medium_1 +=int(line[1])
-#         medium_2 +=int(line[2])
-#         medium_3 +=int(line[3])
-#     print(medium_1)
-#     outfi.write(medium_1/count_str,medium_2/count_str,medium_3/count_str)
-
-
-# lst2,final=[],[]
-# lst=[int(i) for i in input().split()]
-# lst.sort()
-# for i in lst:
-#     if i in lst2 and i not in final:
-#         final+=[i]
-#     elif i not in lst2:
-#         lst2+=[i]
-# print(*final,end=' ')
-
-
-from operator import itemgetter
-
-
-def my_words(path):  # самое частое слово в файле
-    with open(path, "r", encoding='cp1251') as ifile, open(
-            'C:/Users/79537/Downloads/dataf.txt', "w") as ofile:
-        x, d, n = [], {}, 0
-        lst = ifile.read().lower().split()
-        for i in lst:
-            if i not in x:
-                d[i] = lst.count(i)
-                x += [i]
-        for i in sorted(sorted(d.items(), key=itemgetter(0)), key=itemgetter(1), reverse=True):
-            print(*i, file=ofile)
-            break
-
-
-# my_words('C:/Users/79537/Downloads/voyna-i-mir-tom-1.txt')
-
-def pfile():
-    with open('C:/Users/79537/Downloads/voyna-i-mir-tom-1.txt', "r") as f:  # для информации о кодировке
-        print(f)
-
-
-# key,value,s,r=input(),input(),input(),input()
-# print(s.translate(s.maketrans(key,value)))
-# print(r.translate(r.maketrans(value,key)))
-
-# mas=[0,0]
-# n=int(input())
-# for i in range(n):
-#     s=input().split(" ")
-#     s[1]=int(s[1])
-#     if s[0]=="север":
-#         mas[1]+=s[1]
-#     elif s[0]=="запад":
-#         mas[0]-=s[1]
-#     elif s[0] == "восток":
-#         mas[0] += s[1]
-#     elif s[0] == "юг":
-#         mas[1] -= s[1]
-# print(*mas)
-
-def fib(n):
-    a, b = 0, 1
-    for i in range(2, n + 1):
-        a, b = b, (a + b) % 10
-    return (b)
-
-
-# n = int(input())
-# print(fib(n))
-
-def gcd(a, b):
-    if a == 0:
-        return b
-    elif b == 0:
-        return a
-    elif a >= b:
-        return gcd(a % b, b)
-    elif a < b:
-        return gcd(a, b % a)
-
-
-# a, b = map(int, input().split())
-# print(gcd(a, b))
-def con():  # конструкция как писать короче
-    a = int(input())
-    print("True" if -15 < a <= 12 or 14 < a < 17 or 19 <= a else "False")
-
-
-def acg():
-    d = {}
-
-    def add(nmspc, arg):
-        d[nmspc] += arg
-
-    def get(nmspc, arg):
-        if d[nmspc] == arg:
-            print(nmspc)
-        elif d["global"] == arg:
-            print("None")
-        else:
-            get(d.get(nmspc), arg)
-
-    def create(nmspc, arg):
-        d[arg] = nmspc
-
-    n = int(input())
-    for i in range(n):
-        cmd, nmspc, arg = input().split()
-        if cmd == "get":
-            get(nmspc, arg)
-        elif cmd == "add":
-            add(nmspc, arg)
-        elif cmd == "create":
-            create(nmspc, arg)
-
-
-# import csv, re
-# with open(r"C:\Users\79537\Downloads\Crimes.csv") as f:
-#     r = csv.DictReader(f)
-#     for row in r:
-#         if re.search(r"\d\d/\d\d/[2015]", row["Date"]) == True:
-#             print('YES')
-
-class NonPositiveError(Exception):
-    pass
-
-
-class PositiveList(list):
-    def append(self, x):
-        if x <= 0:
-            raise NonPositiveError
-        else:
-            super().append(x)
-
-
-##################
-class multifilter:
-    def judge_half(pos, neg):
-        return pos >= neg
-
-    def judge_any(pos, neg):
-        return pos >= 1
-
-    def judge_all(pos, neg):
-        return neg == 0
-
-    def __init__(self, iterable, *funcs, judge=judge_any):
-        self.iterable = iterable
-        self.funcs = funcs
-        self.judge = judge
-
-    def __iter__(self):
-        for i in self.iterable:
-            pos, neg = 0, 0
-            for f in self.funcs:
-                if f(i) is True:
-                    pos += 1
+        d,str={},""
+        while True:
+            flag, f = False, False
+            line = file.readline().strip()
+            if not line:
+                break
+            for x in line:
+                if x not in str:
+                    d[x]=1
+                    str+=x
                 else:
-                    neg += 1
-            if self.judge(pos, neg):
-                yield i
+                    d[x]+=1
+            print(d)
+            for k in d.values():
+                if k==3 and flag == False:
+                    b3+=1
+                    flag=True
+                if k==2 and f == False:
+                    b2+=1
+                    f=True
+            d, str = {},""
+        print(b2, "*", b3, "=", b3 * b2)
+def z5():#9295
+    with open(r"C:\Users\79537\Downloads\05.txt") as file:
+        s=file.readline().strip()
+        f = True
+        while f:
+            k = s[0]
+            str = s
+            for i, b in enumerate(s[1:]):
+                if b != k and b.lower() == k.lower():
+                    s = s[:i] + s[i + 1:]
+                    s = s[:i] + s[i + 1:]
+                    break
+                    # b = s[1]
+                else:
+                    k = b
+            if str == s:
+                f = False
+    print(s, " ", len(s))
+import copy
+def z6():
+    with open(r"C:\Users\79537\Downloads\gg.txt") as file:
+        lst,str=[],""
+        while True:
+            line = file.readline().strip()
+            if not line:
+                break
+            d=dict()
+            for i,b in enumerate(line):
+                if b not in d.keys():
+                    d[b]=1
+                else:
+                    d[b]+=1
+                lst.append(copy.deepcopy(d))
+        for i in lst:
+            mx = list(i.values())[0]
+            mx_key=""
+            for key, j in i.items():
+                if j>mx:
+                    mx=j
+                    mx_key=key
+            str+=mx_key
+    print(lst)
+    print(str)
+def z666():
+    d0,d1,d2,d3,d4,d5,d6,d7={},{},{},{},{},{},{},{}
+    with open(r"C:\Users\79537\Downloads\06.txt") as file:
+        str=""
+        while True:
+            line = file.readline().strip()
+            if not line:
+                break
+            #0
+            if line[0] not in d0:
+                d0[line[0]] = 1
+            else:
+                d0[line[0]] += 1
+            #1
+            if line[1] not in d1:
+                d1[line[1]] = 1
+            else:
+                d1[line[1]] += 1
+            #2
+            if line[2] not in d2:
+                d2[line[2]] = 1
+            else:
+                d2[line[2]] += 1
+            #3
+            if line[3] not in d3:
+                d3[line[3]] = 1
+            else:
+                d3[line[3]] += 1
+            #4
+            if line[4] not in d4:
+                d4[line[4]] = 1
+            else:
+                d4[line[4]] += 1
+            #5
+            if line[5] not in d5:
+                d5[line[5]] = 1
+            else:
+                d5[line[5]] += 1
+            #6
+            if line[6] not in d6:
+                d6[line[6]] = 1
+            else:
+                d6[line[6]] += 1
+            #7
+            if line[7] not in d7:
+                d7[line[7]] = 1
+            else:
+                d7[line[7]] += 1
+        lst=[d0,d1,d2,d3,d4,d5,d6,d7]
+        # print(d0)
+        # print(d1)
+        # print(d2)
+        # print(d3)
+        # print(d4)
+        # print(d5)
+        # print(d6)
+        # print(d7)
 
+        for d in lst:
+            mx = list(d.values())[0]
+            mx_key = list(d.keys())[0]
+            for key, j in d.items():
+                if j > mx:
+                    mx = j
+                    mx_key = key
+            str += mx_key
+        print(str)
+import re
+def z7():
+    with open(r"C:\Users\79537\Downloads\07.txt") as file:
+        while True:
+            str = file.readline().strip()
+            if not str:
+                break
+            str = "aaaa[qwer]tyui"#не проходит проверку с одиннаковыми буквами
+            #str="ioxxoj[asdfghhg]zxcvbn"
+            str="uxpvoytxfazjjhi[qogwhtzmwxvjwxreuz]zduoybbzxigwggwu[lamifchqqwbphhsqnf]qrjdjwtnhsjqftnqsk[bsqinwypsnnvougrs]wfmhtjkysqffllakru"
+            j = 0
+            count = 0
+            f = False
+            flag = False
+            while True:
+                if str[j]==str[j+1]:
+                    j+=1
+                else:
+                    break
+            pattern = str[j:j + 2]
+            pattern = str[j:j + 2] + pattern[::-1]
+            lst = re.split(r"[\[\]]", str)
+            # print(lst)
+            # print(pattern)
+            for i in range(len(lst)):
+                if i / 2 == 0 and f==False:  # без скобок
+                    for _ in lst[i]:
+                        a = lst[i].find(pattern)
+                        if a == -1:
+                            j += 1
+                            pattern = lst[i][j:j + 2]
+                            pattern = lst[i][j:j + 2] + pattern[::-1]
+                        else:
+                            f = True
+                            break
+                else:
+                    pat = lst[i][j:j + 2]
+                    pat = lst[i][j:j + 2] + pat[::-1]
+                    for _ in lst[i]:
+                        a = lst[i].find(pat)
+                        if a == -1:
+                            j += 1
+                            pat = lst[i][j:j + 2]
+                            pat = lst[i][j:j + 2] + pat[::-1]
+                        else:
+                            flag = True
+            if flag is False and f is True:
+                count += 1
 
-def mul2(x):
-    return x % 2 == 0
-
-
-def mul3(x):
-    return x % 3 == 0
-
-
-def mul5(x):
-    return x % 5 == 0
-
-
-############
-import math
-from itertools import takewhile
-import itertools
-
-
-def primes():
-    a = 2
-    while True:
-        if (math.factorial(a - 1) + 1) % a == 0:
-            yield a
-        a += 1
-
-
-def reverse_file():
-    with open(r"C:\Users\79537\Downloads\dataset_24465_4 (1).txt", encoding='cp1251') as f, open("output.txt", "w",
-                                                                                                 encoding='cp1251') as result:
-        result.write("".join(f.readlines()[::-1]))
-
-
-import \
-    os.path  # import shutil shutil.copy("file1","file2") shutil.copytree("dir1","dir2") - библиотека копирует файла и директории, os.walk
-
-
-def path_file():  # выводит абсолютный путь
-    print(os.path.abspath("main.py"))
-
-
-"""
-методы строки
-s[start:end].startswith(str) - проверяет начинается ли строка со строки, переданной в аргумент
-В аргумент можно передать префикс;
-endswith() - проверяет заканчивается ли строка со строки, переданной в аргумент;
-s[start:end].find(str) - индекс первого вхождения, если нет вернет -1;
-s.index(str) - индекс первого вхождения, если нет ValueError;
-count()
-"""
-
-"""
-s, a, b, i = [input() for _ in range(3)] + [0]
-f = True
-if a in b and a in s:
-    print("Impossible")
-    f = False
-while f:
-    if a in s:
-        s = s.replace(a, b)
-        i += 1
-    else:
-        if i > 1000:
-            print("Impossible")
-        else:
-            print(i)
-        f = False
-"""
-def Seacrh():
-    s, t, count = [str(input()) for _ in range(2)] + [0]
-    for i in range(len(s)):
-        i = s[i:i + len(t)].find(t)
-        if i == -1:
-            continue
-        count += 1
     print(count)
 
-import sys,re
-def parse():
-    for line in sys.stdin:
-        line = line.rstrip()
-        pattern = r"(\w)(\1)+"
-        line = re.sub(pattern, r'\1', line)
-        print(line)
 
-def solution():
-    x = input().split()
-    lst,k=[],[]
-    for i in x:
-        if i.isalpha():
-            lst+=[i]
+def z777():#123 не подошел
+    count = 0
+    with open(r"C:\Users\79537\Downloads\07.txt") as file:
+        while True:
+            str = file.readline().strip()
+            if not str:
+                break
+            # str = "aaaa[qwer]tyui"  # не проходит проверку с одиннаковыми буквами
+            # str="ioxoj[josdfgh]zxvccvbn"
+            f = False
+            flag = True
+            k = 1
+            for i in range(len(str)-3):
+                if k == 0:
+                    break
+                if str[i] == "[":
+                    flag = False
+                    continue
+                if str[i] == "]":
+                    flag = True
+                    continue
+                if str[i] == str[i+3] and str[i+1] == str[i+2] and str[i] != str[i+1]:
+                    if flag:
+                        f = True
+                    else:
+                        f = False
+                        k = 0
+                        break
+            if f:
+                count += 1
+    print(count)
+
+import gc #4021032+76280+47738+691015+543197082=548033147
+def z9():
+    with open(r"C:\Users\79537\Downloads\09.txt") as file, open(r"C:\Users\79537\Downloads\09_output.txt","w") as output:
+        while True:
+            s = file.readline().strip()
+            if not s:
+                break
+            i = 0
+            # s = "(10x11)(12x144)jk op\nX(8x2)(3x3)ABCY"
+            while i < len(s):
+                if s[i]==" ":
+                    i += 1
+                    continue
+                if s[i] == "(" and s[i + 1].isdigit():
+                    y=i
+                    while True:
+                        if s[y]=="x":
+                            index=y
+                            break
+                        y+=1
+                    num=s[i+1:index]
+                    while True:
+                        if s[y]==")":
+                            end=y
+                            break
+                        y+=1
+                    word=s[end+1:end+1+int(num)]
+                    digit=s[index+1:end]
+                    output.write(unzip(word, int(digit)))
+                    i += len(word) + 3 + len(num) + len(digit)
+                    gc.collect()
+                else:
+                    output.write(s[i])
+                    i += 1
+
+
+# def z10():
+#     a=True
+#     with open(r"C:\Users\79537\Downloads\09.txt") as file, open(r"C:\Users\79537\Downloads\10_output.txt","w+") as output:
+#         while True:
+#             s = file.readline().strip()
+#             if not s:
+#                 break
+#             i = 0
+#             s = "X(8x2)(3x3)ABCY"
+#             # s="(12x1)(7x1)(2x1)An"
+#             while a:
+#                 print(i)
+#                 print(s)
+#                 if s[i]==" ":
+#                     i += 1
+#                     continue
+#                 if s[i] == "(" and s[i + 1].isdigit():
+#                     y=i
+#                     flag=True
+#                     while True:
+#                         if s[y]=="x":
+#                             index=y
+#                             break
+#                         y+=1
+#                     num=s[i+1:index]
+#                     while True:
+#                         if s[y]==")":
+#                             end=y
+#                             break
+#                         y+=1
+#                     word=s[end+1:end+1+int(num)]
+#                     digit=s[index+1:end]
+#                     st=unzip(word, int(digit))
+#
+#                     print(st)
+#                     for k in range(len(st)-1):
+#                         if st[k] == "(" and st[k + 1].isdigit():
+#                             s = st[k:]+s[i+3 + len(num) + len(digit) + len(word):]
+#                             flag=False
+#                             i=0
+#                             break
+#                         else:
+#                             output.write(st[k])
+#                             s=st[k+1:]+s[i+3 + len(num) + len(digit) + len(word):]
+#                             # i+=1
+#                     # if flag:
+#                     #     # s=s[len(st)-1:]
+#                     #     i=0
+#                         # print(s)
+#                         # i += 3 + len(num) + len(digit) + len(word)
+#
+#                     gc.collect()
+#                 else:
+#                     output.write(s[i])
+#                     i += 1
+def unzip(x,y): #x-последовательность символов, y-количество раз для повторения
+    str=""
+    for _ in range(int(y)):
+        str += x
+    return str
+
+def result():
+    with open(r"C:\Users\79537\Downloads\10_output.txt") as f:
+        res = f.readline().strip()
+        print(len(res))
+
+# def z1010():
+#     with open(r"C:\Users\79537\Downloads\09.txt") as file, open(r"C:\Users\79537\Downloads\10_output.txt","w+") as output:
+#         s = file.readline().strip()
+#         i = 0
+#         s = "X(8x2)(3x3)ABCY"
+#         # strin = s
+#         # s="(12x1)(7x1)(2x1)An"
+#         while i < len(s):
+#             # flag = False
+#             if s[i] == " ":
+#                 i += 1
+#                 continue
+#             if s[i] == "(" and s[i + 1].isdigit():
+#                 # flag=True
+#                 y = i
+#                 while True:
+#                     if s[y] == "x":
+#                         index = y
+#                         break
+#                     y += 1
+#                 num = s[i + 1:index]
+#                 while True:
+#                     if s[y] == ")":
+#                         end = y
+#                         break
+#                     y += 1
+#                 word = s[end + 1:end + 1 + int(num)]
+#                 digit = s[index + 1:end]
+#                 # strin=s[i + 3 + len(num) + len(digit) + len(word):]
+#                 s = unzip(word, int(digit))+s[i + 3 + len(num) + len(digit) + len(word):]
+#                 i = 0
+#             else:
+#                 output.write(s[i])
+#                 i += 1
+
+
+def z3():
+    N=[["_","_","D"],#1
+    ["_","_","R","_","_","D"],#2
+    ["U","L","_","R","_","_","D"],#3
+    ["_","_","L","_","_","_","_","D"],#4
+    ["_","_","_","_","_","R"],#5
+    ["_","U","_","_","L","_","R","_","_","D"],#6
+    ["_","_","U","_","_","L","_","R","_","_","D"],#7
+    ["_","_","_","U","_","_","L","_","R","_","_","D"],#8
+    ["_","_","_","_","_","_","_","L"],#9
+    ["_","_","_","_","_","U","_","_","_","_","R"],#A
+    ["_","_","_","_","_","_","U","_","_","L","_","R","D"],#B
+    ["_","_","_","_","_","_","_","U","_","_","L"],#C
+    ["_","_","_","_","_","_","_","_","_","_","U"]]#D
+
+    with open(r"C:\Users\79537\Downloads\03.txt") as file, open(r"C:\Users\79537\Downloads\03_output.txt","w+") as output:
+        el = N[4]
+        num = 4
+        while True:
+            s = file.readline().strip()
+            if not s:
+                break
+            for char in s:
+                for w in el:
+                    if w == char:
+                        num = el.index(w)
+                        el = N[num]
+                        break
+            if num==9:
+                num="A"
+            elif num==10:
+                num="B"
+            elif num==11:
+                num="C"
+            elif num==12:
+                num="D"
+            else:
+                num+=1
+            # print("***",num,"***")
+            output.write(str(num))
+        res = output.readline().strip()
+        print(res)
+
+
+def z8():
+    import re
+    with open(r"C:\Users\79537\Downloads\08.txt") as file:
+        a=50
+        b=6
+        plate=[["."] * a for _ in range(b)]
+        while True:
+            s = file.readline().strip()
+            if not s:
+                break
+            nums = re.findall(r'\d+', s)
+            nums = [int(i) for i in nums]
+            if re.match(r"rotate column", s):
+                lst=[]
+                for i in range(b):
+                    lst.append(plate[i][nums[0]])
+                for i in range(nums[1]):
+                    lst.insert(0, lst.pop())
+                for i in range(b):
+                    plate[i][nums[0]]=lst[i]
+
+            elif re.match(r"rotate row", s):
+                plate=shift(plate,nums)
+            elif re.match(r"rect", s):
+                for i in range(nums[1]):
+                    for y in range(nums[0]):
+                        plate[i][y]="#"
+    for k in range(b):
+        print(plate[k])
+    count=0
+    for i in range(b):
+        for j in range(a):
+            if plate[i][j]=="#":
+                count+=1
+    print(count)
+def shift(plate,nums):
+    for i in range(nums[1]):
+        plate[nums[0]].insert(0, plate[nums[0]].pop())
+    return plate
+
+#задание 10
+def findCompression(str):
+    length=0
+    i=0
+    while i<len(str):
+        if str[i] == "(":
+            other=i
+            while str[other]!=")":
+                other+=1
+            info=list(map(int,str[i+1:other].split('x')))
+            stringRange=str[other+1:other+info[0]+1]
+            length+=info[1]*findCompression(stringRange)
+            i+=other-i+info[0]
         else:
-            lst.clear()
-        if len(lst)==2:
-            k+=[lst]
-            lst=[]
-    if len(k)==0:
-        print("Мало слов!")
-    else:
-        for i in k:
-            print(*i)
+            length+=1
+            i+=1
+    return length
 
-# k,m=map(int,input().split())
-# mass=[]
-# mass += list(map(int,input().split()))
-# print(mass)
+# with open(r"C:\Users\79537\Downloads\09.txt") as file:
+#     str = file.readline().strip()
+#     str="(190x9)(44x13)ZAVXETEBULPKEEYPUUMBWUPDHPXFDPIEWHXPNVMSKMMN(55x14)(6x12)VZQPAA(18x4)ITWIARZWEBBNFBLOGV(13x7)QYTKAIZHUZAX(4x10)ITDZ(61x3)(1x7)Y(6x2)ZPMQZV(8x15)OIHTQPNI(23x12)CAXCRVLMLAKHPBUUODXQQNT(3x9)WJP(5x12)PJAMH(43x13)(30x13)RWAWRZCDEMSPYFDZVVUKZUWSEVFJWH(1x9)N(17x13)(11x4)YHEKAEQQQFW(3x13)SQF(195x4)(56x5)(4x8)PBWL(6x8)HRMIA(2x5)QQ(8x9)JOISJLQL(10x3)JBKQBBPQGK(125x11)(24x13)ELKCLOFLJRFIJCIIRMCOZEPC(7x6)LWRTOXG(14x3)WPNDOOJCSZHKJA(23x10)VUBKGHFYHCEKZMNKIDYWIDY(25x15)FOFQQVCWHFRSRVRSYMYRCZRIF(141x14)(45x2)(12x1)UWTFPNJDKWSG(10x11)DHIUEFRJAQ(4x10)WSOX(53x15)(15x3)UHDWGLSDIHUYSMD(6x10)GALIPI(13x13)UBIUGFWYWMHCR(24x1)(18x3)SAGTVYELUTWSXQVWNI(10x7)GENZOXBYOG(4x2)RMGS(4177x12)(1752x3)(1513x4)(297x4)(10x5)(4x15)PBBT(160x14)(11x6)JCKLDJGYMGO(60x1)(5x4)SOMMG(5x1)MJENB(3x11)IIR(24x12)FQAMKJSXTZCAVAEDEQFQMWIR(70x12)(25x2)FWNHIGOHOUYCQSCUKSSCZXRJI(2x11)XF(17x3)VGTLRDJNDBERXWRAY(3x8)AJT(94x8)(68x10)(21x14)DUGIEEMZURLSHXEPSDMDH(5x11)LISKT(13x14)UMVAIVVRDTOSG(4x9)PGOV(13x4)(8x9)KWQGNJIV(8x2)RLEKKJWG(383x11)(75x1)(21x3)SBABSNIPBMLCXQECMVDGB(42x2)(11x2)ESWFOYEVFIJ(2x7)EL(5x13)OCVGF(1x14)J(189x1)(25x2)(8x13)SUFVDTKX(6x1)EOKRWU(28x4)(6x3)SRAGHT(1x15)H(5x8)VNPVG(24x6)(6x4)LOUBGC(8x9)EFISAKFG(9x13)XXKXSZNFD(73x1)(16x12)HOCOHBXNQRXTLLTJ(13x2)LGGHDLJZCIJOG(24x11)PHJDXXBUJTPSKMLGCALDLLGU(2x15)YU(91x11)(3x4)LMM(16x8)DYOHACMPKIHRDUVJ(44x9)(3x2)MDC(5x10)FNPGJ(11x1)OHPDVNRKRSI(2x10)YS(5x13)RURCD(134x15)(121x7)(7x13)XTFRZSM(70x9)(8x15)SNLOWPVP(12x9)MYKDYCTXIAZA(13x9)XMZEHDZTPTAES(13x9)TQLYGXTECVDBG(5x10)EXPSZ(15x7)GVFTLYYYBLGGUJO(1x7)N(14x15)WNZDWNHWJQOQNH(648x6)(83x14)(55x11)(2x13)RP(9x10)MJPOSAGCX(26x7)NXVQZQAQDWHABJFPRVMGSBACWU(14x15)ECVUEOUGLOEJUY(232x13)(30x6)(2x11)NZ(1x13)S(2x8)AR(3x9)DDI(45x3)(4x10)FFJD(7x7)ZRGGRXE(6x10)WJKSTC(5x13)NEQXI(85x9)(4x9)JCLI(14x4)HCVHVWLAFIUSIZ(4x1)BISN(26x2)HRPEKOHFGEJLJDGIWVLQOWJJKU(9x14)YXKJROSLO(17x12)(11x8)HFLFUQNVNMK(23x11)(1x1)N(10x13)TMNKWOOVPB(192x11)(26x1)(4x10)TCAP(3x5)LHN(2x15)DK(36x8)(13x13)UIDKJYPXBFPFO(10x8)BGWMNGEBRF(18x7)SIXYKHPJJONMMHQCRB(5x15)JGIRA(77x3)(5x4)MHAXO(3x8)WSI(15x14)AVHDFYABFZSAOJP(30x15)XNZULOJGEPQDRSHDYHHTBLEMRMPYSB(111x9)(75x13)(10x4)EBCINBYRMS(10x6)XNEZNHZJCE(7x13)HQOEZCA(14x4)OAIKFNURYAWDQK(5x5)VCRLS(22x14)ZROMOTQACGRYTSVCXIEEBP(16x13)(10x5)RKGNREWXGD(200x10)(77x1)(70x15)(25x5)(11x5)OEDHHSUIKNC(3x5)XKD(15x6)EIDHHIZMJRRAGSP(12x9)QNZKKKFEGAMM(110x1)(103x1)(74x12)(32x9)XABWGIVXFJVAMTILWOQXFNMJZSMAVHFY(30x8)TPBSRMCDOQNNAVZQPPZADGDWQAYWCV(16x2)WSDGMBKDJSOACIFW(2x9)XS(2401x11)(808x3)(1x5)F(99x6)(11x15)(5x12)BNHZF(75x9)(68x14)(12x13)UBFYCZHLDIRJ(2x2)EM(18x13)KNOLWZIARZVDYPKPPL(1x11)D(4x10)QFDT(136x10)(47x3)(28x12)(2x10)SO(8x8)TUBVOBJB(1x12)V(7x4)(1x12)R(2x3)TW(47x15)(40x10)(9x3)IPNMPMMCD(1x1)O(3x6)BKR(6x15)DOOFGK(5x15)KNCGF(6x3)(1x3)E(148x4)(9x13)(3x12)UZC(4x12)VKWP(38x8)(12x9)(7x8)IKLDJWW(1x8)I(9x5)FIBXVUYFN(72x13)(32x11)(19x7)SLSTSSNZPVSNIBPYQRS(2x8)UA(6x11)KXTTMX(4x10)MJMA(5x15)EKHFC(391x7)(3x1)DMD(64x4)(50x4)(8x9)IRDFCBWT(8x13)TKRVFJUL(5x4)DRSZI(8x5)YFTAAAZW(3x3)SYD(165x15)(72x7)(13x8)YXWPIFDIWTEBO(14x5)URQPORMHJUTGAY(3x9)HJB(18x14)VMTFPEBGKWWRLBODQH(81x4)(36x1)VPRXKSMKMDBXIPXGJMAGSEHEQLWAWRQWRIQT(7x13)RCFJLYM(13x7)FLKGGTMPZLEMG(2x3)JU(133x9)(15x1)YQJSGFRQQOLXAPM(15x2)NZUELUVNJDEECSB(56x9)(18x8)NMABOFTJAYZTEMSNTB(2x3)CO(6x1)ARWFWX(9x7)AWQFAIJNL(23x1)(1x7)U(11x2)HETPXKPHZAF(462x1)(171x9)(135x10)(74x14)(16x14)XNDDMDFQCZDHJZZZ(7x11)QBQIIIW(10x5)QNBFCGEEGG(16x3)QNDBYXJONNPSPHUE(25x8)(1x3)T(13x9)OJKYMWIWLTOKH(17x4)(11x3)FHYJYDFLLIP(22x1)(4x1)CLZN(7x10)RJFTIIO(2x12)MC(233x3)(3x7)AIT(40x5)(10x9)(5x1)LLWPV(17x11)WJGWFPRRSEIQAJYMM(36x2)(21x9)(15x2)OCWZSWWKTBYNHHS(3x14)KPF(105x3)(6x11)UCHAIT(25x8)(18x15)PAEPDOQFZFCOWXNKPM(43x1)(11x12)JFQAUNYHERQ(9x11)DRQITRCYP(5x3)WTJHQ(8x8)OHJBAFIB(19x2)DAFUAZEEDQNGIZRECDJ(1x1)P(24x8)MZPCRRIKUHWFOHDVOMNLOBMO(217x9)(209x10)(25x14)ZTSIKFJVMLJUQETBKJPPRTQTS(6x2)VAFWIN(89x5)(6x5)(1x7)X(71x14)(2x5)OS(16x1)VIBKGDVQXIBHAKNI(3x5)ZGR(19x14)MLKEFZKKQSYHAELTBGB(2x10)CD(65x4)(58x12)(3x1)ZIU(3x12)SZC(10x2)OQPHJZCGVW(9x2)BDWHFXWZX(6x2)PTHTDS(885x10)(613x1)(38x15)(11x10)DUOYNEGCCAP(14x6)(2x11)ZT(1x5)R(232x7)(25x2)(18x14)QVUIOCQAEZLOTZVXIX(77x7)(22x15)HVHLSATCKEFKLWYRPJXKSI(3x2)PNW(33x12)UTZCGONSVMLAPWTAZILLBRNDOABBZBLRQ(11x6)VCKFJVKSNFC(3x5)COU(86x11)(8x12)YLWMFUKC(16x12)HKQZWQXAQEZELTKJ(6x4)DKEVJB(16x14)WKKMITBLHTJDDIBV(9x11)XPSECVOAO(165x4)(62x1)(11x3)LBEETPNBLEO(5x14)RYYQP(5x5)UHLVY(18x2)OONYEICVPEDLQHIUSJ(36x4)(30x4)KQGSBKSAIDHYDRXEBMNLIHLYXVPEZH(8x13)SYVNWDUT(34x12)XLWWYVKPHEMTJBEQYGKHOQDSHVAGNVMFJK(139x13)(27x7)(1x5)C(4x15)JBBW(5x13)AJJKR(56x11)(18x7)MIPUIIWUHSWCQMEGYN(6x1)MEHVUR(14x11)LOIATKARYOHUJU(37x6)UVKYKHPRZUJFSTUUKFTQIIKKNZOLCQLLBJXVV(5x7)NTEYE(258x7)(33x2)(4x12)EAPG(5x6)SFYVB(8x8)BPGFSFVY(57x7)(1x9)S(44x11)(2x1)RO(1x11)S(24x1)GDRUIEUMOHITSMXDIDGJARJQ(15x6)(9x13)VJZKHBRCR(127x10)(23x12)(1x9)V(3x4)HEI(4x9)OFWY(10x2)BBSZRMWOHR(7x15)(1x15)M(31x5)CKEZCRPSEGEZDYRPWQUKNPMCBTNSPAI(25x5)(1x9)J(12x15)BSSMRDPRNPDY(3785x8)(8x3)GHOEWPFD(1806x14)(124x10)(105x8)(10x9)CDDMAEIXOO(37x3)(10x4)(5x5)VPMMI(3x5)GBP(7x14)VJHBABZ(18x14)XNTKDFTRBCZEACZALZ(14x12)TYBGBOIYRCVRZU(7x2)IORHKKB(590x10)(54x8)(17x6)UTOVYCYKDKKEIUCAI(25x9)(19x6)HIWIXDNGZZJGIACNPPQ(523x7)(41x4)(1x1)I(7x4)(2x6)GU(17x1)DZVZPWJUHXFIHHPFP(196x13)(5x7)OSDSW(15x3)SRTTJWWSYUJGBFF(27x2)(4x13)MSYH(4x1)SXNR(3x2)DPR(70x2)(16x13)QCNXMJXCKTMHZPBM(2x10)FO(25x6)AEVXNJGKTBCPMCUASWXOWHAQS(3x8)GOG(50x2)(14x9)AAGJSTOOBANCTR(14x5)MDCWUWOSELBMGX(4x10)YYLT(10x15)SQZZGFJLDT(133x13)(57x11)(7x11)DDNXMAC(2x12)DV(5x11)UBANO(19x6)NLORMPBFFBOYBQIBZWV(6x8)ASEPWF(21x12)(14x12)FHGWBAXHALMVQI(17x7)(10x13)CCDGPEISBV(2x2)OX(107x3)(7x1)QNMWYFE(18x3)LMFXMYUQKABGXVOUVV(7x9)(2x1)BF(37x15)(12x8)KTBAPXKZLKWT(1x9)W(8x1)GSDNJDSU(9x15)KYVQMDMQW(593x4)(255x7)(146x11)(40x9)(33x12)YLECKKJDQVAMUFFXPWGHUSOECCHZXBLWM(93x10)(3x10)BXC(1x9)U(2x10)BF(18x10)SGORQZUALUTFAVYLPW(39x9)WQGBTEVNTRHTIWQAWVJKIXJVCVMKRGQMPPMIFSF(94x13)(88x1)(5x11)EEUOH(31x13)FSLFXZCUXOXHREPXRPFAWSEABNPADCE(5x7)KEMTG(4x13)GDAZ(13x1)JCRZXVSFBDJZK(4x12)SITF(269x14)(24x3)(7x13)YXQHGKY(5x14)ROOVW(205x14)(10x12)ZZBVWTQWEV(56x11)(1x6)R(10x6)NFOTUTICTJ(8x12)JZWVIHBE(13x13)UBIZNBBEZOIID(28x2)(14x14)HLADLLCONGEPXC(2x2)NH(9x14)(3x15)YCB(69x11)(14x13)QXFXOJBHONIVVJ(5x15)YJMER(6x12)ITSZWH(18x12)IGLEYGQAABOWKMXFGE(20x3)(14x5)(9x7)MSOAXHAID(38x3)IZFZRYYEJVCORBDLTYOHLZHKVDKQVADYQISGTW(469x1)(18x3)TWUUVIXHGSCVVDOFDJ(437x12)(86x8)(40x6)(19x9)OSYGQMGNNLPBKXEPHQG(1x12)M(3x2)PQT(17x15)TQQBGULRUKIXBPYZW(10x7)(5x9)TZMKP(75x3)(68x14)(13x7)QTDRLDGGUIORW(9x10)JTAZPINDH(17x12)KEVECGSLNRMIRBAZO(5x5)DVTUL(199x6)(60x4)(13x11)NWEDTFZTDQWFY(3x3)JBP(4x4)PYBQ(16x11)XZRNQJPUOMZZMYYR(77x2)(2x15)ZK(1x11)V(3x5)BRV(30x13)NLHYJDBXRMCZOQRFXABZUZILEHZMZX(11x9)QONGFLBHCQU(26x3)(5x4)WWVVY(2x15)ZH(3x7)MDR(6x3)PCMRSD(2x1)AA(2x14)PG(44x3)(6x1)CVWMIH(7x13)HSQHXKD(13x14)(7x11)WGEPOEK(1507x5)(39x1)OMGCAFYYXDFVRVNEYPBATJCKBHTRSMGIWTDNIFP(21x9)BDIJRNXYMIRXXILMGIFQK(404x11)(23x15)(9x3)MWBTTYJCT(4x4)UEQO(15x10)GUYNAWLCLNHJPXD(5x5)CECRY(334x14)(67x10)(60x14)(4x13)ZBQU(3x7)SJI(3x14)GKR(2x2)YJ(20x5)DJQTDUIFRGDDOOAMZSFM(99x13)(47x10)(14x2)THIPTHUFVLLGXK(11x15)SQGQIYAKKOC(4x4)TNIC(38x10)(6x6)KCQRSL(3x8)JZT(1x11)B(7x1)XFDBCCU(147x3)(8x13)SWNXWSCS(18x5)VDRJWFBVUTWDFZDCLM(62x3)(19x13)NFZAMEONWPPNGFFODDP(14x13)XTOZXOYZJQBPQC(9x12)AOSMZPGZV(8x13)UZOKBJJQ(21x9)(3x11)PFH(7x4)JDSYTAF(1014x11)(386x14)(119x5)(31x6)ORPIVAGZSMEQRAAOQRSMOAFFWVVFBDT(53x1)(5x8)PRHTO(7x15)HXUNQUA(15x5)AJAJOJCLVYZBICO(4x4)DHZH(3x15)BWJ(9x6)TCXBOMXXL(190x13)(54x15)(3x7)OKI(8x11)TPHKZGWA(6x15)RMAXEB(2x11)QZ(7x7)BXCDHWF(14x11)KYUHEMBXSEADVP(49x4)NLMONTYNOIDPEALJJBKPLWHCKBVVBHHUZNGUSULFWUAEBQQCQ(47x8)(2x11)WJ(8x11)ZYDVAWLX(1x6)W(6x5)CJIWBA(2x15)LS(12x7)PEYJTBKWCUPT(38x2)(31x14)(2x2)CL(17x12)ABAKPQWMMGJTORRBB(4x12)GHGK(496x13)(231x7)(60x2)(11x10)PHJQCJOXFHA(6x7)BKEVJY(25x5)MIZCFGZJRGZDMKHUEGZMACELH(27x12)(3x9)SMI(12x15)CCJWNFNOUQGC(101x8)(27x15)PPDYHKWCWZYEEJJPUFXRRYIASUT(17x10)GGFQFHRYKJMXKBBAR(8x3)FTPTBVXE(23x10)CLAVUXEHWTEYZQNRYOGIQME(16x15)(10x8)LAZDAYDVLM(193x3)(9x15)OHPJACNZL(40x14)(1x9)O(17x7)UOFNZKLKAAMBPOHNS(6x6)SZIJWV(54x5)(2x7)FV(7x9)GEWYULA(1x13)U(22x2)ZVSVOAJXMDEMUPOQLTINZF(24x15)TWQIDBTWEPQBMHYKPLYZSVZI(33x15)(20x1)LZUNQTUVMDOOXEDUZFAR(1x13)K(52x3)(46x9)(7x8)WQWZCBB(27x14)HAZIUDWNIFUKQCAWYFJIGEWSLJO(85x12)(55x7)(48x14)(3x4)TBU(22x6)YFSPWGIYYVLXKMNBKZRFMH(7x1)LGZSHDG(2x10)HY(10x2)SLXHMEWSGF(9x8)(4x2)RWUE(434x11)(426x14)(52x8)(21x14)BCBITAXHZMXHHYRZDNOJA(18x1)FKEHYEEXRRMXDUPPLZ(361x9)(127x14)(29x4)(1x11)G(3x5)TXQ(9x2)KKWGNXDII(11x11)RVLXVHDTCUP(68x9)(11x8)YQKPSJFRDFP(16x10)UUEHIVBUTUFRUVDE(2x14)RX(14x8)GVHHPSBTEJUNKN(219x7)(105x11)(21x10)EFKAZUOPPUTTNFYUNJSZO(71x8)HDPQUFFZUXYPEKOWXNNZVQJFIZEYEODJSNYUOAZOIRQETXCRZBGJWWMMPPIIHJEGFYREGNR(38x11)NKGEVBBLDDLGOYUHLBWXSEAQHFNGABJENZQMVU(3x14)TTC(34x1)(6x10)NXQLWI(15x10)EQVLORVBUBZDUMB(7x8)(2x7)VA(5917x1)(2328x4)(814x14)(37x14)(1x10)J(24x6)(17x10)TRMNJJCWQUYENUBXU(445x15)(177x1)(37x14)PUCBAZGPSDOVSUSSZSCCWDCWYILTSEMJVIVZX(17x7)IMEOLAHQLTARXBTDR(65x8)(2x5)YN(14x12)QXEQUHYTHIHLPM(5x5)MTCMS(9x6)FGQLYLJNL(8x8)KHHJLUDZ(32x10)FXSLPGRBINYRWGIWKRRYSEWARGDQDPSW(10x10)WLADYFJIUQ(2x4)XX(209x8)(94x11)(36x15)UKGUJGLESXQIOASTZHMRHEWIEMXOYYIJUKAG(6x6)NCIDZV(7x10)JHACUVQ(21x1)KAGYAGPGGDOGOBXMSNJEQ(91x2)(30x15)UUMCWGDYGHNOBMJTPPZVSZEHNKZCAA(27x9)VXBDEFDWMTIRGHCQSYDYWCSBJPY(8x7)GKMVKFZJ(2x15)NS(5x14)BPRCM(15x3)OPXQHISSCCOQIEA(287x9)(280x8)(21x3)PKYXLJXGOKXSXBZTGDEGK(59x1)(12x13)VGTKVMCQIXTS(2x11)BF(1x14)W(18x14)JDKAOKYPNNXQMDKKGX(7x2)IHUZYBL(73x4)(9x5)FOVTPBVAV(13x9)EARZLZXSPEGWQ(3x3)QAR(11x12)TWJVZZSODUV(9x5)CGFVAEEEH(90x15)(11x9)YWKHVDSVGUO(12x10)GENMNJXISQVW(12x10)KBTDARSOPYAQ(14x3)NHGNNHWJAAESBB(9x10)CJIVXCNIZ(17x5)(2x10)VL(4x1)SSQH(430x7)(202x4)(1x10)O(187x11)(4x3)LYVC(94x5)(2x11)YL(37x5)PKLWZVRFRDJNMQUYXZZOGBUCFEGKARHPZRWLH(12x4)GJTFJWUZZGDJ(11x12)PQYMGSOEGFN(1x11)E(13x6)SMCPDDOIVMUJG(43x7)(19x1)ARSZUFFVAWVUVVAJYZG(11x10)DBEQVCPRXFZ(4x13)CILW(19x14)SOMYRGMAZBGXXSSVQQT(188x1)(2x7)OJ(19x1)(4x14)NIUS(4x5)MZXK(149x5)(5x15)XJJFF(9x3)WTNULIFAC(3x4)IEG(6x14)BUUOSC(97x15)(3x7)JDE(21x14)DRSIEZJSCSARMYNLHBXMA(6x6)KLXKVG(23x10)GWFKMOJCXJAZQRPYSIOJJMX(14x8)UVPDUFZQCLWMRY(1041x14)(487x4)(147x5)(18x5)(3x3)IEG(5x3)ORYNF(39x10)(2x9)ST(7x3)CNEFQLW(5x1)DWNFO(4x10)MENC(71x7)(10x4)WPXANNVOAW(9x14)HMVITPUDJ(2x12)ED(19x12)QFRXEDUDYNRCRGIQACU(1x4)G(153x2)(2x6)YX(35x7)(3x14)UFH(6x6)JKPPKO(2x14)NJ(2x7)UD(80x15)(1x12)W(5x13)TLUOY(12x13)OGETDQFVRFHB(30x10)VXWLNWQFZIBHSHJFUVXGMWQKRTPUNW(1x5)B(2x10)XJ(5x2)FLSQR(86x15)(64x9)(12x13)FWBFVBRJLSFO(9x10)ZPRGOCGIY(1x4)B(17x10)GLFZZASOWKMWKPDTX(10x8)CAFLEOCKCZ(54x2)(10x8)GGUJBSQXKH(1x13)K(11x2)XMEFKFUWGKB(9x4)AUZEFUEAN(13x14)VXYFVIJSRAVZZ(223x1)(104x2)(81x14)(29x6)IKMHIQWEIAZRBLNRYIQEOGFYMUCEE(3x12)NEU(20x15)RSUTWKPGWJJVIUDYXASE(5x1)YWRMT(10x3)VQUXAKOZAF(105x4)(2x3)AW(7x13)DJVQXBD(20x13)(9x4)DXROACCWK(1x4)O(26x13)(1x5)H(13x14)SBMKWBSXIQTUZ(19x5)GSHERQSGPSGZSAAODTO(309x10)(15x14)DNIEMCZLWCGEGSR(109x4)(1x14)G(45x5)(7x5)JTGEPNX(7x13)CNJHWWK(13x12)KJWMEKGRJRMQY(44x11)(9x15)OGVNXLNGE(16x11)NHPXBCXLHBHZSAQB(1x4)L(93x4)(7x12)(2x3)OB(7x4)SZLFMBQ(62x2)(2x4)OG(1x14)U(5x4)ZNTON(32x3)OEIHONIOMNLTJSVTNHGCSLRJXXPQURCA(66x1)(54x5)(15x9)LYQASFYTPBJCCTQ(5x13)GXJHJ(9x2)GPSBRVISD(2x14)RH(1x7)K(12x12)(6x13)(1x5)J(864x10)(216x7)(178x10)(1x11)G(154x11)(90x13)(12x12)UFQPSXIWWDUQ(13x6)FYWZJVJNQSKEQ(15x12)GSSWXSFQVZTXGOG(4x15)MOQA(14x3)YHCUXXWSJYCNQI(50x13)(16x7)UPECXWSSIGLSAZOP(2x12)RI(6x15)WWABBQ(3x8)BPI(3x11)NFV(12x9)ZYSZENNMCSPP(6x12)(1x1)P(315x3)(62x11)(55x13)SCWUEOTJUJEMXZCCKXLCTEJVIRXGIUJYKUXGWLAOPECYNRGQPDCOSQV(210x2)(7x15)(2x9)XX(153x6)(47x2)(4x2)UBGL(1x4)L(2x12)DX(6x14)MXHGZC(7x9)LWFVNCK(70x5)(7x5)UFXBNXP(7x5)PKQATYS(11x8)LHGQTJWLAZJ(13x14)OFBRVKMVTVBZZ(4x6)XWEG(9x7)GSTAYQFTU(5x6)TDRMT(5x3)HJYCR(12x5)IWDWYJNQWREP(4x9)YUJV(11x6)KMYUKTMGGXM(7x3)SURQLZX(311x14)(74x3)(8x15)WQZPCBEW(33x12)(27x3)(11x3)YUVMRYKBTVB(5x6)NGWOQ(13x10)(8x5)SBGOAMLC(223x14)(216x8)(132x3)(21x2)PDWWLLVUIJDBVMBAPPJZM(3x13)IYX(8x2)GIANHKIZ(69x11)BAKSUXGMPAGTWYBQTTGVDJUIRLJAFSLFOKSDYHKRDXLZUYFAYSRWLVQQVEZXXWLOVXQUM(1x11)X(6x2)ABRRNH(15x9)GMKKGQJJGUTMWNC(6x15)(1x4)I(27x3)(21x3)OOAVOEXIZFFOLRTUKQNPH(19x3)(13x1)YLFXGZKVYIPCZ(2656x13)(857x8)(30x10)(6x3)VEIEFD(13x7)(8x2)OFNGTNFE(214x14)(5x6)ICUDF(48x12)(31x7)(2x10)TP(7x10)WZVHLAL(5x7)KSICH(5x15)FVQMZ(7x6)AXHHPXQ(130x8)(11x14)PVOXSOISUKL(62x11)(10x14)HGAHGPYOTZ(9x14)XATSJXSGN(3x13)UHW(7x5)BDFILVO(3x15)GMG(37x8)(3x12)AMM(6x6)LOPLLX(10x10)YFQHLBVIMU(228x4)(196x6)(72x8)(2x8)UY(12x5)SBLKPHOBOVFN(11x15)WLTYGTOAQWA(11x15)RMCCQHSJLXA(6x9)YMIKNU(50x5)(3x1)UTD(15x1)ZQIGJQRVLIHWAXA(9x2)DEJZUYIAL(1x10)N(55x13)(2x5)JX(9x11)HIBOQBDTQ(3x15)DZW(18x4)EWTFFMXDRUKNAPRHRA(8x1)YWZNRIBZ(6x14)IYSFIN(355x14)(194x12)(69x8)(3x3)JWI(11x1)MWECPWERVLX(25x15)YETRDSRTQWJVQLUJMBAPEDYJS(7x3)ITRTVHQ(10x10)LCXBZSSHTD(2x15)YF(53x1)(7x5)NOKQXWK(9x14)KZWHIQACE(5x1)YYBBF(10x2)TIVHXKIADG(29x5)(2x11)WH(1x12)O(1x3)J(3x3)DMD(146x1)(103x14)(3x3)ERJ(38x9)GNCTOAYQMPVNQRIVMPVHFSSSGJJSSKSIDALFXX(4x1)NCQT(3x14)LET(26x14)TFTZFNESHNZTQJXXYBMSRWGAGO(28x15)(21x13)GRQXOPFOMEVVQLSLETKMP(868x8)(2x2)LQ(413x10)(16x4)BJDCAOAWPRKTUFRC(31x15)LHSNRKFAVXIRZAKFIYGXZPTCIRUNZHG(193x3)(121x4)(2x6)WL(18x5)MXOBIDOXCQZZZQZXYC(5x10)RNAJG(38x3)QVEWABIGEWSUMFJYHZQLBTEDHDFIYFVMXHCRRE(28x11)VQEPBWKREZPTIZFUUNGEMZMXHFZS(59x9)(4x12)NCCS(19x9)JYSMUMHFWZFPABRIEEA(9x8)UFKXIDPNI(5x6)SGDUG(146x4)(28x5)GQKNGDPHQEJTRWPEVQJYFFIQYYPF(28x4)(15x10)AWEFQWTZFCCLXKE(1x7)M(13x8)QBKRCQRRBJDAE(53x1)WANGCZVVKGDRBZQRAVCUZMMCGNJNSHNFXANYREMTHLBUQGGZHSHHA(17x13)(3x11)BXL(3x8)RNJ(359x12)(17x1)(10x14)VPPYMRFSRU(207x4)(90x2)(21x14)VUDTSKRNATYRMYKGYQYDL(36x9)LDLIDFVHNZNTJTSSEYXDGRVODTLKEEZNOLFF(1x7)X(9x4)MGCIKCCSN(10x6)FPZMNVWKXH(24x13)OUBLSXEEYBRLOLVGZDQWDLRS(58x1)(23x13)WINJZLMDVRARNTFALJISNQK(4x4)QSQK(12x10)UPGRXOKUXTDM(115x9)(2x2)HO(21x1)(8x6)PCXYREJW(3x1)UWY(57x15)(6x4)QYSTVV(12x13)VRHZQVQAUZZX(2x10)DE(3x8)VGE(6x9)NXXMWM(10x15)MIENAJJIIE(43x8)YVIJLFYFOEQGUPNDWTRHDCLNVFGHIAPANTFZAMFGJQC(327x7)(3x11)ALX(311x1)(231x11)(25x11)RGXIXRXCNBRIFYSSQBKJXMASC(47x6)(8x12)OIQIUAOX(4x12)IILJ(17x7)NXBRGOKPSBULLIBXL(70x2)(11x9)GARFKGTCOJL(10x2)DXLRJCFRLN(17x12)FLZSXBDSLPOPDFFEM(7x12)PHEQJMO(5x3)JDOEM(54x4)(2x1)TD(3x4)YSO(2x14)YK(17x3)SSRTVCFNRLIKNOFRP(2x12)HB(24x1)(18x4)AZJCRZPJNIDEXSAGWI(1x15)Y(15x12)SPBYIMRXHEWUTGI(8x1)TGFEVRJD(126x12)(119x4)(6x4)AQOOFZ(101x7)(59x10)(22x12)SJEEKAXVKZYKJCXXAWWNEG(8x12)WGKCHMBP(2x10)KQ(3x6)MYL(2x6)VA(7x9)(1x11)K(2x3)RV(4x2)GIJL(441x15)(408x13)(289x8)(43x2)(6x9)BQAZCP(7x13)IZBNZQI(5x13)ZGMYF(3x4)GMZ(78x1)(15x12)DNXKBBTWSCRPEML(23x10)WAYXCNEKHTIISDIQEWGDCNF(4x10)XQRB(10x3)OISRGHWVVU(65x7)(8x15)KIFIOIVA(10x12)WKMUSFSYTC(1x12)U(8x11)JSNCQHWS(8x4)HYCCNHFC(10x8)(4x13)BQCN(63x2)(3x2)QGR(9x12)TOXGGUVRN(3x7)COD(25x14)CMLKONRWTLWLVWYUUEPWSBTEZ(72x8)(19x12)ARIOAFCAISJRQDMDHOF(24x7)HGLXAYCAYXGUWPYTOXGQZWLY(10x1)(5x6)PRJUZ(8x9)(2x12)BH(9x5)(3x11)MXX(2x1)XJ(19x8)HNLSLARKZVSCFTEXCSI(13x2)JVOICRNXKBEJW(2422x8)(10x15)JYSIQCFZOH(2369x9)(17x3)BWRHXTCEWMIOWCBLZ(1509x13)(570x6)(246x14)(60x11)(1x10)P(3x11)HKJ(8x15)IWETKXOI(5x8)NEADO(14x1)IEAVMTLUXBXBDE(8x15)QBBQUNOR(51x4)(45x4)YCCREIRLYPDFFQVRVJLOXIKRTRMDMBKIRVKHITINOULDG(15x4)WIDWCKTMYZPSREB(80x10)(7x15)ZVNHHAM(3x7)BHZ(25x1)PFVLKTHEUATHNNGXYDZGIJIBK(16x3)LUTCOWZBFVHJTUBK(1x9)K(190x15)(14x4)YXOTSDWQOJIVDW(53x11)(3x13)CSD(5x12)SDBDT(27x7)YDOBGKBLGCECQIVSRGFGIIJBWGA(30x7)(3x2)JDT(16x9)SFFCTBDYOVMUKMPL(51x5)(1x8)E(4x3)BITK(15x7)FLWVPMCSZRMVWYV(9x15)EIJVRIWJA(11x8)CSGGGGATSAO(83x15)(68x11)(14x2)LLJVOPOHENDLAQ(3x7)DVN(2x3)YS(11x3)XSBUFRQPHOY(10x9)WVHAUYCVEB(2x13)OR(6x10)OSFCFB(10x6)OBBFPHGWAQ(30x4)EXARKTZXSTLIHCZZRQACWOPVJKZGSK(394x5)(86x10)(9x10)(4x4)YPKF(16x12)(10x5)AVCMULTYPH(28x5)(8x9)WRCBEQLZ(9x10)FDNRGFFOE(8x14)LANMMNWZ(47x10)(31x10)(1x6)V(2x3)RV(6x9)YUCWZK(1x11)B(4x6)EVKQ(30x6)(17x6)(6x5)QKMAXX(1x1)R(2x8)LC(204x2)(13x13)(7x11)BANBCOT(81x7)(2x10)BK(56x7)WBGFHSLVALLDLXHGVCQOAHKOFKAEVQOKSVRBIGNGGIYDVXVWOQUTUEMM(5x10)XGTUJ(58x13)(5x3)ZQYHT(14x4)ZZGNGNSJKPSGRQ(3x8)AKN(4x6)RXLZ(6x2)WEEFXH(25x11)TJFFJBAAGGOBSAZQMQUICAHYI(236x9)(194x15)(3x14)JVA(35x11)(11x2)GQGINADTCQS(11x12)RTIRLMBRRJH(61x10)(7x13)CBWDCZV(7x10)JVCBFYH(1x12)H(13x3)UGATYZUHDCEYZ(3x12)OVG(7x7)EIACOSC(56x12)(27x10)YNDHNMITCLTBYSXPTQUTOUCQIXT(15x13)MUOBITUAHZJSRFK(27x10)(14x12)LXCRVIHJNXRIBA(1x6)K(244x13)(25x5)(6x11)(1x4)T(7x10)SRNQHTE(86x10)(14x9)VWOSJAUKGACGWY(22x12)IOCFRYWTITQHRWWRGQVYDN(14x4)PFETLTSAJBRKLD(10x10)OJCWMEHWKB(50x13)(44x9)(26x1)JXVEVGQUOGOOUTKSOEJYVUBIQB(6x14)ZLEVWS(57x8)(23x4)LYXFADIWRECSPOFSVZNGBHV(21x13)CKUEOYZWLZRXIMLRNIUXP(820x13)(261x1)(144x11)(1x5)E(64x1)(18x13)FCVQICIADHEWSQXHWE(26x5)XXKJGNVZWFOVTEYUREEFCHICDM(2x5)HK(15x11)(3x10)ORP(1x8)C(39x11)(4x13)SUFP(22x10)KYQUIAWLMRKSIOWRBRDWWZ(27x6)(21x6)(5x14)GPQTG(5x2)OPMFU(1x14)X(63x3)(57x4)(6x1)IQFWVT(23x14)AVBLZTVEXGPWRROBTUNYYNI(10x4)DTKMOIKVHV(297x13)(134x14)(2x11)HZ(46x4)(16x4)VZZRZCXCXQRURHKS(11x11)VUEMWTKDREM(1x9)U(35x3)(6x11)YNEWZL(16x12)QMHAUQCYJZCYLMND(13x1)VREYZNFSUNKMO(8x13)RLWWXNXA(13x13)EGENXEUKVVSUI(31x5)(3x2)PGY(3x15)RWD(8x15)YRNZQEBO(16x6)(10x9)(4x10)VLXQ(70x3)(6x8)TNVWPK(1x2)A(46x12)(7x9)HGHIFJD(3x9)JAK(19x11)CCNIXNDAIXLLURONAJM(4x6)GFMK(231x9)(187x6)(16x12)KLYAJFBPAXQIVSLJ(4x13)KHJZ(61x5)(23x1)WMHPHZFOQDFEBWBLYWHUVYD(17x13)AGOTHNZXFDKTSOWER(3x9)OEK(37x9)(6x2)ZWBDUY(2x3)DK(12x15)JDHDZQWPZOJU(38x1)(4x6)NGKF(1x15)I(16x5)VYLULCVBLWHGFXWU(6x5)DBKVCG(11x11)JZESDFRQABC(3x9)KDK(10x1)(4x13)AABI(7x5)KLEGJFL(10x5)(4x15)ZWUS(8x2)QFDRMQGB(13x6)(8x5)(3x8)CGU(20x3)SRQEHKTTHHVEZBPBXYLJ(3x12)BUI(27x2)(21x8)(7x12)IVFOQOK(3x5)HAG(45x15)PZDPOLVYNVIARZUFYFYFSCRUBGUYFOIPJFWRQBFNPTTTU(26x13)(3x6)AGP(3x11)ROD(3x13)HAW(63x6)(2x10)TO(29x12)VCQIALMPBPWQRPGGDTYLIDVQJBVND(13x9)(8x8)UUNJYCJW"
+# print(len(str))
+# print(findCompression(str))
 
-def flippingBits(n):
-    res=""
-    n=format(n,'b')
-    b_dict={"0":"1","1":"0"}
-    if len(n)<32:
-        res+="1"*(32-len(n))
-    for i in n:
-        res+=b_dict[i]
-    return int(res,2)
-print(flippingBits(1))
+def z4():
+    sum=0
+    with open(r"C:\Users\79537\Downloads\04.txt") as file:
+        rooms = file.read().strip().split("\n")
+    for i in range(len(rooms)):
+        tokens=rooms[i].split("-")
+        sectorID=int(tokens[len(tokens)-1].split("[")[0])
+        neededLetters=tokens[len(tokens)-1].split('[')[1].replace(']', '')
+        allLetters=[]
+        for i in range(len(tokens)-1):
+            for j in tokens[i]:
+                allLetters+=j
+        counts={}
+        for j in range(len(allLetters)):
+            if allLetters[j] not in counts.keys():
+                counts[allLetters[j]]=0
+            counts[allLetters[j]]+=1
+        counts=dict(sorted(counts.items(), key=lambda x: (-x[1], x[0])))
+        keys=list(counts.keys())
+        if "".join(keys[0:5])==neededLetters:
+            sum+=sectorID
+    return sum
